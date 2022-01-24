@@ -141,8 +141,8 @@
    
         <ContentView BackgroundColor="#ddFFFFFF" IsVisible="{Binding ShowActivityIndicator}">
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0" Padding="0">
-                <ActivityIndicator IsRunning="True" Margin="0,0,10,0" />
-                <Label VerticalTextAlignment="Center" Text="Uploading"
+                <ActivityIndicator IsVisible="{Binding ShowSpinner}" IsRunning="{Binding ShowSpinner}" Margin="0,0,10,0" />
+                <Label VerticalTextAlignment="Center" Text="{Binding ActivityText}"
                        FontSize="Title" />
             </StackLayout>
         </ContentView>
