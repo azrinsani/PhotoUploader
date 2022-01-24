@@ -75,7 +75,7 @@
         <AndroidResource Include="Resources\values\colors.xml" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\..\photouploader.core\photouploader.core\photouploader.core.csproj">
+        <ProjectReference Include="..\photouploader.core\photouploader.core.csproj">
           <Project>{ca158cbe-6c58-476d-837f-9b59c9b6265d}</Project>
           <Name>photouploader.core</Name>
         </ProjectReference>

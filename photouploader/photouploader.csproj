@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\photouploader.core\photouploader.core\photouploader.core.csproj" />
+      <ProjectReference Include="..\photouploader.core\photouploader.core.csproj" />
       <ProjectReference Include="..\azutil-core\_azutil-core.csproj" />
     </ItemGroup>
 
