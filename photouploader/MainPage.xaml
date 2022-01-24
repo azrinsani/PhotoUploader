@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:photouploader.Core.ViewModels;assembly=photouploader.core"
+             x:DataType="viewModels:MainVM"
+             x:Class="photouploader.MainPage">
+    <Grid>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start" BackgroundColor="#000" HeightRequest="60">
+            <ImageButton BackgroundColor="Black" Padding="10,0,10,0">
+                <ImageButton.Source>
+                    <FontImageSource FontFamily="Material"
+                                     Color="#fff"
+                                     Glyph="&#xe5cd;">
+                    </FontImageSource>
+                </ImageButton.Source>
+            </ImageButton>
+            <Label Text="New Diary"  TextColor="#fff" VerticalTextAlignment="Center" FontSize="Large"></Label>
+        </StackLayout>
+        
+        <ScrollView Margin="0,60,0,0" BackgroundColor="#fff">
+             <StackLayout Orientation="Vertical" Spacing="20" BackgroundColor="#f1f5f7"  Padding="20,10,20,10">
+            <!-- Place new controls here -->
+                
+                <StackLayout Orientation="Horizontal" Margin="-20,-20,-20,0" Padding="0,20,0,10" BackgroundColor="#fff" >
+                    <Image Margin="10,0,0,0" HeightRequest="25">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="Material"
+                                             Color="#616161"
+                                             Glyph="&#xe0c8;">
+                            </FontImageSource>
+                        </ImageButton.Source>
+                    </Image>
+                    <Label Text="20041075 | TAP-NS TAP-North Strathfield" TextColor="#616161" VerticalTextAlignment="Center"></Label>
+                </StackLayout>
+                
+                <Label Text="Add to site diary" TextColor="#646565" FontSize="Medium" FontAttributes="Bold"></Label>
+                <Frame Margin="0" HasShadow="True" CornerRadius="5">
+                    <StackLayout Spacing="0">
+                        <Label Text="Add Photos to site diary" Margin="0,0,0,15" TextColor="#646565" FontSize="Small" FontAttributes="Bold"></Label>
+                        <FlexLayout JustifyContent="Start" AlignContent="Center" Wrap="Wrap" BindableLayout.ItemsSource="{Binding Photos}" >
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="viewModels:PhotoVM">
+                                    <Grid Margin="0,0,10,0" HeightRequest="75" WidthRequest="75">
+                                        <Image Source="{Binding FullPath}" HeightRequest="60" WidthRequest="60" BackgroundColor="#000" Margin="0,10,10,0">
+                            
+                                        </Image>
+                                        <ImageButton Padding="2" HeightRequest="25" WidthRequest="25"  Margin="0"
+                                                     Command="{Binding DeleteCommand}"
+                                                     CornerRadius="500" HorizontalOptions="End" VerticalOptions="Start" BackgroundColor="#000">
+                                            <ImageButton.Source>
+                                                <FontImageSource FontFamily="Material"
+                                                                 Color="#fff" Size="Medium"
+                                                                 Glyph="&#xe5cd;">
+                                                </FontImageSource>
+                                            </ImageButton.Source>
+                                        </ImageButton>
+                                    </Grid>
+                                </DataTemplate>
+                            
+                            </BindableLayout.ItemTemplate>
+                            
+                          
+                        </FlexLayout>
+                                
+                        <Button BackgroundColor="#97D600" Command="{Binding AddPhotoCommand}" Text="Add a photo" TextTransform="None" Margin="0,10,0,0" TextColor="#fff" CornerRadius="5"></Button>
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Margin="0,15,0,0" Spacing="0">
+                            <Label HorizontalOptions="StartAndExpand" Text="Include in photo gallery" VerticalOptions="Center" TextColor="#a9a9a9"></Label>
+                            <CheckBox HorizontalOptions="End" IsChecked="{Binding IncludeInPhotoGallery, Mode=TwoWay}" Color="#97D600" Margin="0,0,-10,0" VerticalOptions="Center"></CheckBox>    
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+
+                <Frame Margin="0" HasShadow="True" CornerRadius="5">
+                    <StackLayout Spacing="0">
+                        <Label Text="Comments" Margin="0,0,0,5" TextColor="#646565" FontSize="Small" FontAttributes="Bold"></Label>
+                        <Entry Placeholder="Comments" PlaceholderColor="#d4d4d4">
+                                    
+                        </Entry>
+                                
+                    </StackLayout>
+                </Frame>
+
+
+                <Frame HasShadow="True" CornerRadius="5">
+                    <Grid RowSpacing="20" ColumnSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Text="Details" Margin="0,0,0,5" TextColor="#646565" FontSize="Small" FontAttributes="Bold"></Label>
+                                
+                        <DatePicker Grid.Row="1" />
+                        <Entry Grid.Row="2" Placeholder="Select Area" PlaceholderColor="#d4d4d4" Margin="0,0,20,0"></Entry>
+                        <ImageButton Grid.Row="2" HorizontalOptions="End" BackgroundColor="#fff" Margin="0,0,0,0" WidthRequest="30">
+                            <ImageButton.Source>
+                                <FontImageSource FontFamily="Material"
+                                                 Color="#616161"
+                                                 Glyph="&#xe5cf;">
+                                </FontImageSource>
+                            </ImageButton.Source>
+                        </ImageButton>
+                        <Entry Grid.Row="3" Placeholder="Task Category" PlaceholderColor="#d4d4d4" Margin="0,0,20,0"></Entry>
+                        <ImageButton Grid.Row="3" HorizontalOptions="End" BackgroundColor="#fff" Margin="0,0,0,0" WidthRequest="30">
+                            <ImageButton.Source>
+                                <FontImageSource FontFamily="Material"
+                                                 Color="#616161"
+                                                 Glyph="&#xe5cf;">
+                                </FontImageSource>
+                            </ImageButton.Source>
+                        </ImageButton>
+                                
+                        <Entry Grid.Row="4" Placeholder="Tags" PlaceholderColor="#d4d4d4" Margin="0,0,20,0"></Entry>
+                        <ImageButton Grid.Row="4" HorizontalOptions="End" BackgroundColor="#fff" Margin="0,0,0,0" WidthRequest="30">
+                            <ImageButton.Source>
+                                <FontImageSource FontFamily="Material"
+                                                 Color="#616161"
+                                                 Glyph="&#xe5cf;">
+                                </FontImageSource>
+                            </ImageButton.Source>
+                        </ImageButton>
+                    </Grid>
+                </Frame>
+
+            <Button IsEnabled="{Binding NextButtonEnabled, Mode=OneWay}" Text="Next" TextTransform="None" Command="{Binding NextCommand}" TextColor="#fff" CornerRadius="5">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding NextButtonEnabled, Mode=OneWay}" Value="True">
+                        <Setter Property="BackgroundColor" Value="#97D600" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding NextButtonEnabled, Mode=OneWay}" Value="False">
+                        <Setter Property="BackgroundColor" Value="#ccc" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+            
+            </StackLayout>
+        </ScrollView>
+   
+        <ContentView BackgroundColor="#ddFFFFFF" IsVisible="{Binding ShowActivityIndicator}">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0" Padding="0">
+                <ActivityIndicator IsRunning="True" Margin="0,0,10,0" />
+                <Label VerticalTextAlignment="Center" Text="Uploading"
+                       FontSize="Title" />
+            </StackLayout>
+        </ContentView>
+    </Grid>
+    
+</ContentPage>

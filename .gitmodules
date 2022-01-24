@@ -1,0 +1,3 @@
+[submodule "azutil-core"]
+	path = azutil-core
+	url = https://github.com/azrinsani/azutil-core.git
