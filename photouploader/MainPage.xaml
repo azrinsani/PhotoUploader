@@ -19,9 +19,7 @@
         
         <ScrollView Margin="0,60,0,0" BackgroundColor="#fff">
              <StackLayout Orientation="Vertical" Spacing="20" BackgroundColor="#f1f5f7"  Padding="20,10,20,10">
-            <!-- Place new controls here -->
-                
-                <StackLayout Orientation="Horizontal" Margin="-20,-20,-20,0" Padding="0,20,0,10" BackgroundColor="#fff" >
+                 <StackLayout Orientation="Horizontal" Margin="-20,-20,-20,0" Padding="0,20,0,10" BackgroundColor="#fff" >
                     <Image Margin="10,0,0,0" HeightRequest="25">
                         <ImageButton.Source>
                             <FontImageSource FontFamily="Material"
@@ -34,7 +32,8 @@
                 </StackLayout>
                 
                 <Label Text="Add to site diary" TextColor="#646565" FontSize="Medium" FontAttributes="Bold"></Label>
-                <Frame Margin="0" HasShadow="True" CornerRadius="5">
+                 
+                 <Frame Margin="0" HasShadow="True" CornerRadius="5">
                     <StackLayout Spacing="0">
                         <Label Text="Add Photos to site diary" Margin="0,0,0,15" TextColor="#646565" FontSize="Small" FontAttributes="Bold"></Label>
                         <FlexLayout JustifyContent="Start" AlignContent="Center" Wrap="Wrap" BindableLayout.ItemsSource="{Binding Photos}" >
@@ -70,14 +69,10 @@
                     </StackLayout>
                 </Frame>
 
-
                 <Frame Margin="0" HasShadow="True" CornerRadius="5">
                     <StackLayout Spacing="0">
-                        <Label Text="Comments" Margin="0,0,0,5" TextColor="#646565" FontSize="Small" FontAttributes="Bold"></Label>
-                        <Entry Placeholder="Comments" PlaceholderColor="#d4d4d4">
-                                    
-                        </Entry>
-                                
+                        <Label Text="Comments" Margin="0,0,0,5" TextColor="#646565" FontSize="Small" FontAttributes="Bold" />
+                        <Entry Placeholder="Comments" PlaceholderColor="#d4d4d4" />
                     </StackLayout>
                 </Frame>
 

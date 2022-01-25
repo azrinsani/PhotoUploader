@@ -1,17 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using AzUtil.Core;
-using azutil_core;
 
 namespace photouploader.Core.ViewModels
 {
@@ -19,7 +10,7 @@ namespace photouploader.Core.ViewModels
     {
         public MainVM()
         {
-            this.Photos.CollectionChanged += (sender, args) =>
+            this.Photos.CollectionChanged += (_, _) =>
             {
                 this.OnPropertyChanged(nameof(this.NextButtonEnabled));
             };
@@ -83,23 +74,11 @@ namespace photouploader.Core.ViewModels
             this.ActivityText = "Uploading";
             this.ShowSpinner = true;
             this.ShowActivityIndicator = true;
-            foreach (var photo in this.Photos)
-            {
-                var bytes = File.ReadAllBytes(photo.FullPath);
-                var base64Str = Convert.ToBase64String(bytes);
-                var json = new DummyPost()
-                {
-                    name = "image",
-                    job = base64Str
-                }.ToSerializedString();
-                StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                var response = await Services.HttpClient.PostAsync(
-                    "https://reqres.in/api/users", content);
-            }
+            await Services.AppService.Upload(this.Photos);
             this.ActivityText = "Success!";
             this.ShowSpinner = false;
             await Task.Delay(2000);
+            this.Photos.Clear();
             this.ShowActivityIndicator = false;
         });
 

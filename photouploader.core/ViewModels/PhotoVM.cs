@@ -18,7 +18,13 @@ namespace photouploader.Core.ViewModels
         }
         public string FullPath { get => fullPath;
             set => SetProperty(ref fullPath, value); }
-        private string fullPath; 
+        private string fullPath;
+
+        public PhotoVM(string fullPath) : this()
+        {
+            FullPath = fullPath;
+        }
+
         public ICommand DeleteCommand => new AzCommand(() =>
         {
             Services.MainVM.Photos.RemoveWhere(e => e == this);

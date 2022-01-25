@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Foundation;
+using photouploader.Core;
 using UIKit;
 
 namespace photouploader.iOS
@@ -22,6 +23,7 @@ namespace photouploader.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            Services.DeviceService = new DeviceService();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
