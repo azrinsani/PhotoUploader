@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Foundation;
+using FreshMvvm;
 using photouploader.Core;
 using UIKit;
 
@@ -23,7 +24,7 @@ namespace photouploader.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            Services.DeviceService = new DeviceService();
+            FreshIOC.Container.Register<IDeviceService, DeviceService>();
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

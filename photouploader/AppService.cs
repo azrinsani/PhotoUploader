@@ -28,12 +28,14 @@ namespace photouploader
                 }.ToSerializedString();
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var res = await Services.HttpClient.PostAsync(
+                var res = await httpClient.PostAsync(
                     "https://reqres.in/api/users", content);
                 if (!res.IsSuccessStatusCode) throw new HttpRequestException();
             }
         }
 
+        private HttpClient httpClient => _httpClient ??= new HttpClient();
+        private HttpClient _httpClient;
         public async Task<FileResult> PickPhotoAsync()
         {
             try

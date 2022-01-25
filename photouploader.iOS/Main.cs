@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Foundation;
-using photouploader.Core;
+﻿using FreshMvvm;
 using UIKit;
 
 namespace photouploader.iOS
@@ -14,8 +10,7 @@ namespace photouploader.iOS
         {
             // if you want to use a different Application Delegate class from "AppDelegate"
             // you can specify it here.
-            
-            Services.DeviceService = new DeviceService();
+            FreshIOC.Container.Register<IDeviceService, DeviceService>();
             UIApplication.Main(args, null, "AppDelegate");
             
         }
