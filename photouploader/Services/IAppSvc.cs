@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Net.Http;
-using System.Threading;
-using photouploader.Core.ViewModels;
 using Xamarin.Essentials;
 
-namespace photouploader.Core
+namespace photouploader
 {
     public interface IAppService
     {

@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using AzUtil.Core;
 using azutil_core;
-using photouploader.Core;
-using photouploader.Core.ViewModels;
 using Xamarin.Essentials;
 
 namespace photouploader
@@ -28,7 +24,7 @@ namespace photouploader
                 var json = new DummyPost()
                 {
                     name = "image",
-                    job = base64Str
+                    job = base64Str.Substring(1,20)
                 }.ToSerializedString();
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 

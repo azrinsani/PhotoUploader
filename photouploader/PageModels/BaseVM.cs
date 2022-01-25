@@ -4,16 +4,12 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using FreshMvvm;
 
-namespace photouploader.Core.ViewModels
+namespace photouploader
 {
     
-    public interface IOnPropertyChanged
-    {
-        void OnPropertyChanged([CallerMemberName] string propertyName = null);
-    }
-    
-    public class BaseViewModel : INotifyPropertyChanged, IOnPropertyChanged
+    public class BaseViewModel : FreshBasePageModel
     {
 
 
@@ -25,17 +21,11 @@ namespace photouploader.Core.ViewModels
             if (EqualityComparer<T>.Default.Equals(backingStore, value)) return false;
             backingStore = value;
             onChanged?.Invoke();
-            OnPropertyChanged(propertyName);
+            RaisePropertyChanged(propertyName);
             return true;
         }
         
-        public event PropertyChangedEventHandler PropertyChanged;
-        [DebuggerStepThrough]
-        public void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        
+
         #endregion
     }
 }

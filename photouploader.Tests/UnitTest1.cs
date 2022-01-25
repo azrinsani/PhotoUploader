@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using photouploader.Core.ViewModels;
 using Xunit;
 
 namespace photouploader.Tests
@@ -21,10 +20,7 @@ namespace photouploader.Tests
                 var fullPath = createNewTempFile();
                 photos = new List<PhotoVM>
                 {
-                    new()
-                    {
-                        FullPath = fullPath
-                    }
+                    new(fullPath)
                 };
             }
 

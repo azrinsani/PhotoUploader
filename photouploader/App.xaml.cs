@@ -1,21 +1,22 @@
-﻿using System;
-using photouploader.Core;
-using photouploader.Core.ViewModels;
-using Xamarin.Forms;
+﻿using FreshMvvm;
 using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 
 namespace photouploader
 {
-    public partial class App : Application
+    public partial class App
     {
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage();
-            Services.MainVM = (MainVM) this.BindingContext;
-            Services.AppService = new AppService();
-            Services.MainVM.Initialize();
+            //MainPage = new MainPage();
+            FreshIOC.Container.Register<IAppService, AppService>();
+            FreshIOC.Container.Resolve<IDeviceService>().SetTopStatusBar(AzUtil.Core.Color.FromHex("#000000"));
+            var page = FreshPageModelResolver.ResolvePageModel<MainPageModel> ();  
+            var basicNavContainer = new FreshNavigationContainer(page);  
+            MainPage = basicNavContainer; 
+            
+            
         }
 
         protected override void OnStart()

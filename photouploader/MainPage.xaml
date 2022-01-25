@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewModels="clr-namespace:photouploader.Core.ViewModels;assembly=photouploader.core"
-             x:DataType="viewModels:MainVM"
+             xmlns:viewModels="clr-namespace:photouploader;assembly=photouploader"
+             x:DataType="viewModels:MainPageModel"
              x:Class="photouploader.MainPage">
     <Grid>
         <ImageButton BackgroundColor="Black" HeightRequest="60" VerticalOptions="Start" CornerRadius="0"
@@ -73,7 +73,7 @@
                 <Frame Margin="0" HasShadow="True" CornerRadius="5">
                     <StackLayout Spacing="0">
                         <Label Text="Comments" Margin="0,0,0,5" TextColor="#646565" FontSize="Small" FontAttributes="Bold" />
-                        <Entry Placeholder="Comments" PlaceholderColor="#d4d4d4" />
+                        <Entry Placeholder="Comments" Text="{Binding Comments, Mode=TwoWay}" PlaceholderColor="#d4d4d4" />
                     </StackLayout>
                 </Frame>
 

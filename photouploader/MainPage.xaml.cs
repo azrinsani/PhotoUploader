@@ -7,11 +7,17 @@ using Xamarin.Forms;
 
 namespace photouploader
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage:ContentPage
     {
         public MainPage()
         {
             InitializeComponent();
+        }
+        
+        protected override void OnAppearing()
+        {
+            NavigationPage.SetHasNavigationBar(this, false);
+            base.OnAppearing();
         }
     }
 }

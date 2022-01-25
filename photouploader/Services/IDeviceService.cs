@@ -1,6 +1,6 @@
 using AzUtil.Core;
 
-namespace photouploader.Core
+namespace photouploader
 {
     public interface IDeviceService
     {

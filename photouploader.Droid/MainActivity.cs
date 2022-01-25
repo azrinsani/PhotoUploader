@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using FreshMvvm;
 using photouploader.Core;
 using Xamarin.Forms.Platform.Android;
 
@@ -20,7 +21,7 @@ namespace photouploader.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
 
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            Services.DeviceService = new DeviceService();
+            FreshIOC.Container.Register<IDeviceService, DeviceService>();
             LoadApplication(new App());
         }
     }
