@@ -5,17 +5,18 @@
              x:DataType="viewModels:MainVM"
              x:Class="photouploader.MainPage">
     <Grid>
-        <StackLayout Orientation="Horizontal" VerticalOptions="Start" BackgroundColor="#000" HeightRequest="60">
-            <ImageButton BackgroundColor="Black" Padding="10,0,10,0">
-                <ImageButton.Source>
-                    <FontImageSource FontFamily="Material"
-                                     Color="#fff"
-                                     Glyph="&#xe5cd;">
-                    </FontImageSource>
-                </ImageButton.Source>
-            </ImageButton>
-            <Label Text="New Diary"  TextColor="#fff" VerticalTextAlignment="Center" FontSize="Large"></Label>
-        </StackLayout>
+        <ImageButton BackgroundColor="Black" HeightRequest="60" VerticalOptions="Start" CornerRadius="0"
+                     HorizontalOptions="Start" Padding="10,0,10,0">
+            <ImageButton.Source>
+                <FontImageSource FontFamily="Material"
+                                 Color="#fff"
+                                 Glyph="&#xe5cd;">
+                </FontImageSource>
+            </ImageButton.Source>
+        </ImageButton>
+        <Label Text="New Diary" BackgroundColor="Black"  HeightRequest="60" TextColor="#fff" VerticalOptions="Start" 
+               Margin="50,0,0,0" VerticalTextAlignment="Center" FontSize="Large" />
+        
         
         <ScrollView Margin="0,60,0,0" BackgroundColor="#fff">
              <StackLayout Orientation="Vertical" Spacing="20" BackgroundColor="#f1f5f7"  Padding="20,10,20,10">
@@ -30,8 +31,8 @@
                     </Image>
                     <Label Text="20041075 | TAP-NS TAP-North Strathfield" TextColor="#616161" VerticalTextAlignment="Center"></Label>
                 </StackLayout>
-                
-                <Label Text="Add to site diary" TextColor="#646565" FontSize="Medium" FontAttributes="Bold"></Label>
+                 
+                 <Label Text="Add to site diary" TextColor="#646565" FontSize="Medium" FontAttributes="Bold"></Label>
                  
                  <Frame Margin="0" HasShadow="True" CornerRadius="5">
                     <StackLayout Spacing="0">
@@ -120,17 +121,17 @@
                     </Grid>
                 </Frame>
 
-            <Button IsEnabled="{Binding NextButtonEnabled, Mode=OneWay}" Text="Next" TextTransform="None" Command="{Binding NextCommand}" TextColor="#fff" CornerRadius="5">
-                <Button.Triggers>
-                    <DataTrigger TargetType="Button" Binding="{Binding NextButtonEnabled, Mode=OneWay}" Value="True">
-                        <Setter Property="BackgroundColor" Value="#97D600" />
-                    </DataTrigger>
-                    <DataTrigger TargetType="Button" Binding="{Binding NextButtonEnabled, Mode=OneWay}" Value="False">
-                        <Setter Property="BackgroundColor" Value="#ccc" />
-                    </DataTrigger>
-                </Button.Triggers>
-            </Button>
-            
+                <Button IsEnabled="{Binding NextButtonEnabled, Mode=OneWay}" Text="Next" TextTransform="None" Command="{Binding NextCommand}" TextColor="#fff" CornerRadius="5">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button" Binding="{Binding NextButtonEnabled, Mode=OneWay}" Value="True">
+                            <Setter Property="BackgroundColor" Value="#97D600" />
+                        </DataTrigger>
+                        <DataTrigger TargetType="Button" Binding="{Binding NextButtonEnabled, Mode=OneWay}" Value="False">
+                            <Setter Property="BackgroundColor" Value="#ccc" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+                
             </StackLayout>
         </ScrollView>
    
